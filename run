@@ -28,4 +28,4 @@ if [[ -z ${CMD} ]]; then
 fi
 
 eval ${CMD}
-
+cp $ASSEMBLY $DIR/contigs.fa
