@@ -12,10 +12,10 @@ exec  > >(tee ${LOG})
 exec 2>&1
 set -o xtrace
 
-TMP=$(mktemp)
+TMP=$(mktemp -d)
 
 # Destination contigs file
-ASSEMBLY=$TMP/assembly.final.scaffolds.fasta
+ASSEMBLY=$TMP/assembly/assembly.final.scaffolds.fasta
 
 # Source reads in this container
 INPUTS=$2
@@ -29,5 +29,5 @@ if [[ -z ${CMD} ]]; then
   exit 1
 fi
 
-eval ${CMD}
+cd $TMP && eval ${CMD}
 cp $ASSEMBLY $DIR/contigs.fa
