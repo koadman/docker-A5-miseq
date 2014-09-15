@@ -3,7 +3,7 @@ MAINTAINER Aaron Darling, aaron.darling@uts.edu.au
 # based on Michael Barton's IDBA docker file
 
 RUN apt-get update -y
-RUN apt-get install -y gcc build-essential make sed autoconf fastx-toolkit openjdk-7-jre
+RUN apt-get install -y openjdk-7-jre-headless file
 
 # See https://groups.google.com/d/msg/hku-idba/RzTkrVTod8o/kNj_ZghK4eQJ
 # This is why 1.0.9 is used instead of the latest 1.1.2
