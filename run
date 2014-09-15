@@ -12,8 +12,10 @@ exec  > >(tee ${LOG})
 exec 2>&1
 set -o xtrace
 
+TMP=$(mktemp)
+
 # Destination contigs file
-ASSEMBLY=$DIR/assembly.final.scaffolds.fasta
+ASSEMBLY=$TMP/assembly.final.scaffolds.fasta
 
 # Source reads in this container
 INPUTS=$2
