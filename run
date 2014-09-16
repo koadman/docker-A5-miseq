@@ -17,7 +17,7 @@ TMP=$(mktemp -d)
 PREFIX='assembly'
 
 # Destination contigs file
-ASSEMBLY=${TMP}/${PREFIX}/assembly.final.scaffolds.fasta
+ASSEMBLY=${TMP}/assembly.final.scaffolds.fasta
 
 # Source reads in this container
 INPUTS=$2
