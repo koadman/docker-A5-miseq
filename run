@@ -16,9 +16,6 @@ TMP=$(mktemp -d)
 
 PREFIX='assembly'
 
-# Destination contigs file
-ASSEMBLY=${TMP}/assembly.final.scaffolds.fasta
-
 # Source reads in this container
 INPUTS=$2
 
@@ -32,4 +29,11 @@ if [[ -z ${CMD} ]]; then
 fi
 
 cd $TMP && eval ${CMD}
+
+
+# Destination scaffold or contigs file (only "contigs" produced for --metagenome)
+ASSEMBLY=${TMP}/assembly.final.scaffolds.fasta
+if [! -f $ASSEMBLY ]; then
+  ASSEMBLY=${TMP}/assembly.contigs.fasta
+fi
 cp $ASSEMBLY $DIR/contigs.fa
