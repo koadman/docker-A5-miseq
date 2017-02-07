@@ -1,16 +1,12 @@
-FROM debian:jessie
+FROM bioboxes/biobox-minimal-base@sha256:b73428dee585232350ce0e30d22f97d7d22921b74b81a4196d246ca2da3cb0f5
 MAINTAINER Aaron Darling, aaron.darling@uts.edu.au
-# based on Michael Barton's IDBA docker file
 
-RUN apt-get update -y
-RUN apt-get install -y openjdk-7-jre-headless file
+ENV A5_VERSION  20160825
 
-ADD http://downloads.sourceforge.net/project/ngopt/a5_miseq_linux_20150522.tar.gz /tmp/a5_miseq.tar.gz
+ADD image  /usr/local
 
-RUN mkdir /tmp/a5_miseq
-RUN tar xzf /tmp/a5_miseq.tar.gz --directory /tmp/a5_miseq --strip-components=1
+RUN install.sh && rm /usr/local/bin/install.sh
 
-
-ADD run /usr/local/bin/
-ADD Procfile /
-ENTRYPOINT ["/usr/local/bin/run"]
+ENV TASKFILE     /usr/local/share/Taskfile
+ENV SCHEMA       /usr/local/share/assembler_schema.yaml
+ENV BIOBOX_EXEC  run.sh
