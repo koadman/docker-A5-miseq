@@ -18,7 +18,7 @@ eval ${CMD}
 
 # Destination scaffold or contigs file (only "contigs" produced for --metagenome)
 ASSEMBLY=${TMP}/assembly.final.scaffolds.fasta
-if [! -f ${ASSEMBLY} ]; then
+if [ ! -f ${ASSEMBLY} ]; then
   ASSEMBLY=${TMP}/assembly.contigs.fasta
 fi
 cp ${ASSEMBLY} ${OUTPUT}/contigs.fa
