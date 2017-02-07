@@ -15,6 +15,7 @@ apt-get install --yes --no-install-recommends ${BUILD}
 
 fetch_archive.sh ${URL} a5_miseq
 ln -s /usr/local/a5_miseq/bin/* /usr/local/bin/
+rm -rf /usr/local/a5_miseq/example
 
 # Clean up dependencies
 apt-get autoremove --purge --yes ${BUILD}
